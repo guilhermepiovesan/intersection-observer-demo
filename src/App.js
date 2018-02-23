@@ -23,14 +23,14 @@ class App extends Component {
     }
 
     this.observer = new IntersectionObserver(
-      this.handleObserver.bind(this),
+      this.handleObserver,
       options
     )
 
     this.observer.observe(this.loadingRef)
   }
 
-  handleObserver(entities, observer) {
+  handleObserver = (entities, observer) => {
     const y = entities[0].boundingClientRect.y;
     if (this.state.prevY > y) {
       const lastUser = this.state.users[this.state.users.length - 1]
