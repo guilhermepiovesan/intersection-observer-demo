@@ -12,6 +12,22 @@
   font-size: 1.5em;
 }
 
-/*.App-container {*/
-  /*min-height: 800px;*/
-/*}*/
+.App-container ul {
+  list-style: none;
+  margin: 20px;
+  padding: 0;
+}
+
+.App-container ul li {
+  background: #CCC;
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.App-container .App-loading {
+  background: #EEE;
+  font-size: 1.5rem;
+  height: 100px;
+  line-height: 100px;
+  margin: 20px;
+}

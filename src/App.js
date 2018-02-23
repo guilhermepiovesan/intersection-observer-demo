@@ -45,7 +45,7 @@ class App extends Component {
   getUsers(page) {
     this.setState({ loading: true })
     axios
-      .get(`https://api.github.com/users?since=${page}&per_page=100`)
+      .get(`https://api.github.com/users?since=${page}&per_page=50`)
       .then(res => {
         this.setState({ users: [...this.state.users, ...res.data] })
         this.setState({ loading: false })
@@ -65,13 +65,13 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Infinite Scroll with Intersection Observer</h1>
         </header>
-        <div className="App-container">
+        <div id="App-container" className="App-container">
           <div style={{ minHeight: '800px' }}>
             <ul>
               { this.state.users.map(user => <li key={user.id}>{user.login}</li>)}
             </ul>
           </div>
-          <div ref={loadingRef => (this.loadingRef = loadingRef)} style={{height: '100px', margin: '30px'}}>
+          <div ref={loadingRef => (this.loadingRef = loadingRef)} className="App-loading">
             <span style={loadingTextCSS}>Loading...</span>
           </div>
         </div>
