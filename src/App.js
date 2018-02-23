@@ -63,7 +63,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Infinite Scroll with Intersection Observer</h1>
+          <h1 className="App-title">GitHub Users: Infinite Scroll with Intersection Observer</h1>
         </header>
         <div id="App-container" className="App-container">
           <div style={{ minHeight: '800px' }}>
