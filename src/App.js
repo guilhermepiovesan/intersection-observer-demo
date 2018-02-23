@@ -15,6 +15,31 @@ class App extends Component {
 
   componentDidMount() {
     this.getUsers(this.state.page)
+
+    let options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0
+    }
+
+    this.observer = new IntersectionObserver(
+      this.handleObserver.bind(this),
+      options
+    )
+
+    this.observer.observe(this.loadingRef)
+  }
+
+  handleObserver(entities, observer) {
+    const y = entities[0].boundingClientRect.y;
+    if (this.state.prevY > y) {
+      const lastUser = this.state.users[this.state.users.length - 1]
+      const currentPage = lastUser.id;
+
+      this.getUsers(currentPage)
+      this.setState({ page: currentPage })
+    }
+    this.setState({ prevY: y })
   }
 
   getUsers(page) {
